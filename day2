@@ -1,1 +1,66 @@
 
+1)lenth of string using pointer
+#include<stdio.h>
+int main()
+{
+    char name[30];
+    int length=0;
+    char *ptr;
+    printf("enter a string \n");
+    scanf("%s",name);
+    ptr=name;//ptr now pointes to the first character of string and ptr = str; → store address 
+    while(*ptr!='\0'){//*ptr → access value (character)
+        length++;
+        ptr++;
+
+    }
+    printf("the lenth nof string is=%d",length);
+    return 0;
+
+}
+2)Swap using pointer
+#include<stdio.h>
+int main()
+{
+    int x=10;
+    int y=34;
+    int *a=&x,*b=&y;
+    int temp;
+    printf("before swape x=%d  y=%d\n",x,y);
+    temp=*a;
+    *a=*b;
+    *b=temp;
+    printf("after swap x=%d y=%d \n",x,y);
+    return 0;
+
+}
+13)Swap using pointer
+#include<stdio.h>
+int main()
+{
+    int x=10;
+    int y=34;
+    int *a=&x,*b=&y;
+    int temp;
+    printf("before swape x=%d  y=%d\n",x,y);
+    temp=*a;
+    *a=*b;
+    *b=temp;
+    printf("after swap x=%d y=%d \n",x,y);
+    return 0;
+
+}
+3)sum using pointer
+#include<stdio.h>
+int main()
+{
+ int a=19;
+ int b=34;
+ int *x=&a;
+ int *y=&b;
+ int sum=*x+*y;
+ printf("sum=%d\n",sum);
+ return 0;
+
+}
+
