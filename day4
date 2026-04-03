@@ -1,0 +1,113 @@
+1)Write a program to demonstrate pointer initialization and usage
+
+#include <stdio.h>
+
+int main()
+{
+    int a = 10;        // normal variable
+    int *ptr;          // pointer declaration
+
+    ptr = &a;          // pointer initialization (stores address of a)
+
+    // Printing values
+    printf("Value of a: %d\n", a);
+    printf("Address of a: %p\n", &a);
+
+    printf("Pointer ptr stores address: %p\n", ptr);
+    printf("Value using pointer (*ptr): %d\n", *ptr);
+
+    // Modifying value using pointer
+    *ptr = 20;
+
+    printf("New value of a after modification: %d\n", a);
+
+    return 0;
+}
+2)Write a program to demonstrate pointer increment and print before/after addresses.
+#include <stdio.h>
+int main()
+{
+int a=10;
+int *ptr;
+ptr=&a;
+printf("the value pointed by  ptr=%d\n",*ptr);
+printf("before increment pointer address=%p\n",ptr);
+ptr++;
+printf("after ptr increment address =%p\n",ptr);
+}
+3)Write a program to assign one pointer to another and print values.
+#include<stdio.h>
+int main()
+{
+ int a=45;
+ int *ptr;
+ ptr=&a;
+ printf("before assigning ptr value=%d\n",*ptr);
+ int *pptr;
+ pptr=ptr;
+ printf("after assingning  ptr value to the pptr=%d\n",*pptr);
+ return 0;
+
+}
+4)Write a program to compare two pointers (same variable case)
+#include<stdio.h>
+int main()
+{
+  int a=23;
+  int *ptr;
+  int *pptr;
+  ptr=&a;
+  pptr=&a;
+  printf("value pointes to the first ptr=%d\n",*ptr);
+  printf("\nvalue pointes to the second pptr=%d\n",*pptr);
+  printf("address pointes to the first ptr=%p\n",ptr);
+  printf("\naddress pointes to the second pptr=%p\n",pptr);
+  return 0;
+}
+5)Write a program to compare two pointers (different variables case).
+
+
+#include<stdio.h>
+int main()
+{
+  int a=23;
+  int b=23;
+  int *ptr;
+  int *pptr;
+  ptr=&a;
+  pptr=&b;
+  printf("value pointes to the first ptr=%d\n",*ptr);
+  printf("\nvalue pointes to the second pptr=%d\n",*pptr);
+  printf("address pointes to the first ptr=%p\n",ptr);
+  printf("\naddress pointes to the second pptr=%p\n",pptr);
+  return 0;
+}
+6)coverting uppercase to lowercase
+#include <stdio.h>
+
+int main()
+{
+    char str[100];
+    int i = 0;
+
+    printf("Enter a string: ");
+    scanf("%s", str);
+
+    while(str[i] != '\0')
+    {
+        if(str[i] >= 'a' && str[i] <= 'z')
+        {
+            str[i] = str[i] - 32;   
+        }
+        i++;
+    }
+
+    printf("Uppercase string: %s", str);
+
+    return 0;
+}
+
+
+
+
+
