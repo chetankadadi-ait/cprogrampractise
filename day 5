@@ -1,0 +1,76 @@
+1)lowecase to uppecase
+#include<stdio.h>
+int main()
+{
+    char arr[10];
+    int i=0;
+    printf("enter a string\n");
+
+        scanf("%s",arr);
+        while(arr[i]!='\0'){
+        if(arr[i]>='a'&&arr[i]<='z'){
+
+            arr[i]=arr[i]-32;
+        }
+        i++;
+
+
+    }
+     printf("converted letters are =%s\n",arr);
+
+
+    }
+    2)Reverse a string
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char rev[110];
+    int len,temp;
+    int i=0;
+    printf("enter a string\n");
+    scanf("%s",rev);
+    len=strlen(rev);
+
+    for (i=0;i<len/2;i++){
+
+temp=rev[i];
+rev[i]=rev[len-i-1];
+rev[len-i-1]=temp;
+
+
+    }
+    printf("reversed string=%s\n",rev);
+
+}
+3)Write a program to demonstrate  pointer to constant
+#include<stdio.h>
+
+int main()
+{
+    int a = 90;
+    const int *ptr;   // pointer to constant
+
+    ptr = &a;
+
+    printf("Value pointed by ptr = %d\n", *ptr);
+    printf("Address stored in ptr = %p\n", (void*)ptr);
+
+    return 0;
+}
+
+4))Write a program to demonstrate constant pointer
+#include<stdio.h>
+
+int main()
+{
+    int a = 10, b = 20;
+    int *const ptr = &a;   // constant pointer
+
+    printf("Value = %d\n", *ptr);
+    printf("Address = %p\n", (void*)ptr);
+}
+
+    
+}
+
