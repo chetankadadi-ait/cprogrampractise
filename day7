@@ -1,0 +1,67 @@
+1)Find second largest element in array
+#include <stdio.h>
+
+int main()
+{
+    int arr[6];
+
+    int i=0;
+    printf("enter an array\n");
+    for (int i=0;i<6;i++){
+    scanf("%d",&arr[i]);
+
+    }
+    int largest= arr[0];
+    int slarge=arr[0];
+
+    for (int i=1;i<6;i++){
+            if (arr[i]>largest){
+                largest=arr[i];
+            }
+    }
+        for (int i=0;i<6;i++){
+        if (arr[i]<largest&&arr[i]>slarge)
+            {
+            slarge=arr[i];
+            }
+    }
+
+
+printf("second large element =%d\n",slarge);
+
+}
+2)Remove duplicates from array
+#include <stdio.h>
+
+int main()
+{
+    int arr[7];
+    int i, j, n = 7;
+
+    printf("Enter 7 elements:\n");
+    for(i = 0; i < n; i++){
+        scanf("%d", &arr[i]);
+    }
+
+    // Sorting (Bubble Sort)
+    for(i = 0; i < n - 1; i++){
+        for(j = 0; j < n - i - 1; j++){
+            if(arr[j] > arr[j + 1]){
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+
+    // Print without duplicates
+    printf("Array without duplicates:\n");
+    for(i = 0; i < n; i++){
+        if(i == 0 || arr[i] != arr[i - 1]){
+            printf("%d ", arr[i]);
+        }
+    }
+
+    return 0;
+}
+
