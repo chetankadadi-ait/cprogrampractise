@@ -1,0 +1,228 @@
+1)Compound Interest using for loop
+
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    double p = 1000.00;
+    double r = 0.05;
+    double a;
+    int n;
+
+    for (n = 1; n <= 10; n++) {
+        a = p * pow((1 + r), n);
+        printf("%d %.2lf\n", n, a);
+    }
+
+    return 0;
+}
+
+2)// No arguments - No return type functions
+
+#include <stdio.h>
+void greet(void);//it tells comipler to we create greet ()
+int main()//main function
+{
+greet();//go run the greet function
+return 0;//successfully run
+}
+void greet(void){//thiis is actual greet function
+printf("hello");
+}
+
+3) Arguments - No return value
+
+#include <stdio.h>
+void print(int n);
+int main(void)
+{
+int x;
+printf("enter number:");
+scanf("%d/n",&x);
+print(x);
+return 0;
+}
+void print(int n ){
+printf("squre=%d\n",n*n);
+
+}
+4) No arguments - Returns a value
+
+#include <stdio.h>
+int rate(void);
+int main(void){
+int x;
+x = rate();  // call
+    printf("x = %d\n",x);
+return 0;
+}
+int rate(void){
+return 100;
+}
+4)// Arguments - Returns a value
+
+#include <stdio.h>
+
+int add(int a, int b);   // prototype
+
+int main(void)
+{
+    int a, b, sum;
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+
+    sum = add(a, b);
+    printf("Sum = %d\n", sum);
+
+    return 0;
+}
+
+int add(int a, int b)
+{
+    return a + b;
+}
+5)no argument and no return typede
+#include <stdio.h>
+int a, b, sum;   // global variables
+
+void readInput(void);
+void addNumbers(void);
+void displayResult(void);
+
+int main(void)
+{
+readInput();
+addNumbers();
+displayResult();
+return 0;
+}
+void readInput(void){
+printf("enter two numbers");
+scanf("%d %d",&a,&b);
+}
+void addNumbers(void){
+    sum= a+b;
+}
+void displayResult(void){
+    printf("sum=%d",sum);
+}
+6) Question
+Write a C program that uses a function with:
+ 	• Arguments
+ 	• No return value
+The program should:
+ 	1. Read an integer from the user.
+ 	2. Pass the number to a function.
+ 	3. The function should calculate and print the square of the given number.
+ 	4. The function must not return any value.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void square(int a);
+int main(){
+int x;
+printf("enter number:");
+scanf("%d",&x);
+square(x);
+}
+void square(int a)
+{
+    int result;
+
+    result = a* a;
+
+    // Directly print result
+    printf("Square = %d\n", result);
+}
+7)Question
+Write a C program that uses a function with:
+ 	• No arguments
+ 	• Returns a value
+The program should:
+ 	1. Call a function that calculates the sum of two fixed integers inside the function.
+ 	2. The function should return the calculated result to main().
+ 	3. Store the returned value in a variable inside main().
+ 	4. Display the result in main().
+
+Requirements
+ 	• Use a function prototype.
+ 	• The function must not accept any parameters.
+ 	• The function must return an integer value.
+ 	• Do not use global variables.
+ 	• The calculation must be performed inside the function.
+* The printing of the result must be done in main().
+#include <stdio.h>
+#include <stdlib.h>
+
+int sum(void);
+int main (void){
+int x;
+x=sum();
+ printf("Sum = %d\n", x);
+ return 0;
+}
+int sum(void){
+int a=10;
+int b=122;
+int result;
+result =a+b;
+return result;
+}
+
+
+8)Question
+Write a C program that uses a function with:
+ 	• Arguments
+ 	• Returns a value
+The program should:
+ 	1. Read two integers from the user.
+ 	2. Pass those two numbers to a function.
+ 	3. The function should calculate the product (multiplication) of the two integers.
+ 	4. The function should return the result to main().
+ 	5. main() should print the final answer.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+int mult(int a,int b);
+int main(){
+int x,y;
+int result;
+printf("enter two numbers:");
+scanf("%d %d",&x,&y);
+result=mult(x,y);
+printf("product=%d\n",result);
+return 0;
+
+}
+int mult(int a,int b){
+    int product;
+product=a*b;
+return product;
+}
+
+9)switch
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int day;
+    printf("Enter a number between 1-7: ");
+    scanf("%d", &day);
+
+    switch(day) {
+        case 1: printf("mond\n"); break;
+        case 2: printf("tues\n"); break;
+        case 3: printf("thur\n"); break;
+        case 4: printf("wedn\n"); break;
+        case 5: printf("frie\n"); break;
+        case 6: printf("sund\n"); break;
+        case 7: printf("sata\n"); break;
+        default: printf("invalid day\n"); break;
+    }
+
+    return 0;
+}
