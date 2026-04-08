@@ -1,0 +1,266 @@
+1)include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char ch='k';
+    printf("character=%c\n",ch);
+    printf("ASCII value=%d",ch);
+    return 0;
+
+    }
+2) Program: Checking Character Type — ctype.h
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char ch;
+
+    printf("Enter a character: ");
+    scanf("%c", &ch);
+
+    printf("\n--- Character Analysis of '%c' ---\n\n", ch);
+
+    if (isalpha(ch))
+        printf("'%c' is an Alphabet\n", ch);
+    else
+        printf("'%c' is NOT an Alphabet\n", ch);
+
+    if (isdigit(ch))
+        printf("'%c' is a Digit\n", ch);
+    else
+        printf("'%c' is NOT a Digit\n", ch);
+
+    if (isalnum(ch))
+        printf("'%c' is Alphanumeric (letter or digit)\n", ch);
+    else
+        printf("'%c' is NOT Alphanumeric\n", ch);
+
+    if (isupper(ch))
+        printf("'%c' is Uppercase\n", ch);
+    else
+        printf("'%c' is NOT Uppercase\n", ch);
+
+    if (islower(ch))
+        printf("'%c' is Lowercase\n", ch);
+    else
+        printf("'%c' is NOT Lowercase\n", ch);
+
+    if (isspace(ch))
+        printf("'%c' is a Whitespace (space/tab/newline)\n", ch);
+    else
+        printf("'%c' is NOT a Whitespace\n", ch);
+
+    if (ispunct(ch))
+        printf("'%c' is a Punctuation character\n", ch);
+    else
+        printf("'%c' is NOT a Punctuation character\n", ch);
+
+    printf("\nASCII value of '%c' = %d\n", ch, ch);
+
+    return 0;
+}
+3)Write a C program to demonstrate ASCII character operations
+or
+Write a C program to print uppercase alphabets (A–Z), lowercase alphabets (a–z), and digits (0–9). Also demonstrate conversion between uppercase and lowercase characters using ASCII values.
+or
+Write a C program to print alphabets and digits, and perform case conversion using ASCII.
+#include <stdio.h>
+
+int main() {
+    char ch = 'A';
+
+    printf("--- upper Series ---\n");
+    for (int i = 0; i < 26; i++) {
+        printf("%c ", ch + i);
+    }
+
+    printf("\n\n--- Lowercase Series ---\n");
+    char small = 'a';
+    for (int i = 0; i < 26; i++) {
+        printf("%c ", small + i);
+    }
+
+    printf("\n\n--- Digit Series ---\n");
+    char digit = '0';
+    for (int i = 0; i < 10; i++) {
+        printf("%c ", digit + i);
+    }
+
+    printf("\n\n--- Manual Uppercase to Lowercase ---\n");
+    char upper = 'H';
+    char lower = upper + 32;
+    printf("%c to %c\n", upper, lower);
+
+    printf("\n--- Manual Lowercase to Uppercase ---\n");
+    char low = 'h';
+    char up = low - 32;
+    printf("%c to %c\n", low, up);
+
+    return 0;
+}
+4)Program : getchar() and putchar()
+
+#include <stdio.h>
+
+int main() {
+
+    // Basic getchar and putchar
+    char ch;
+    printf("Enter a character: ");
+    ch = getchar();
+
+    printf("You entered: ");
+    putchar(ch);
+    printf("\n");
+
+    // Print alphabet using putchar
+    printf("\n--- Printing A to Z using putchar ---\n");
+    char letter = 'A';
+    for (int i = 0; i < 26; i++) {
+        putchar(letter+i);
+        putchar(' ');
+    }
+
+    // Read a line character by character
+    printf("\n\n--- Type a sentence (press Enter to stop) ---\n");
+    char c;
+    getchar();   // clear leftover newline from buffer
+    while ((c = getchar()) != '\n') {
+        putchar(c);
+    }
+    printf("\n");
+
+    return 0;
+}
+5)Character Info Program
+Write a C program that:
+- Reads a single character from the user
+- Prints the character itself
+- Prints its ASCII value
+- Prints the next character (character + 1)
+- Prints the previous character (character - 1)
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+ char character;
+ printf("enter character:\n");
+scanf("%c",&character);
+printf("ASCII value is=%d\n",character);
+printf("next characetr=%c\n",character+1);
+printf("previous  characetr=%c",character-1);
+return 0;
+}
+6) Character Type Identifier
+Write a C program that:
+- Reads a single character from the user
+- Identifies and prints what type of character it is
+- Prints its ASCII value
+The program should detect Uppercase, Lowercase, Digit, Whitespace, Punctuation
+
+
+#include <stdio.h>
+#include <ctype.h>
+
+int main()
+{
+   char ch;
+
+   printf("enter character\n");
+   ch=getchar();
+   putchar(ch);
+   if(isupper(ch)){
+   printf(" its uppercase\n");
+   }else{
+   printf("its not uppercase\n");
+   }
+if(islower(ch)){
+    printf("its lower case\n");
+}
+else{
+    printf("its not lower case\n");
+
+}
+if(isdigit(ch)){
+    printf("its digites\n");
+}else{
+    printf("its not digites\n");
+}
+if(ispunct(ch)){
+    printf("its punctuation\n");
+
+}else{
+printf("its not punctuation\n");
+}
+if(isspace(ch)){
+    printf("whitespace\n");
+}else{
+    printf("not whitespace\n");
+
+}
+printf("ASCII value is=%d",ch);
+return 0;
+}
+7)A to Z with ASCII Table
+Write a C program that:
+- Prints all uppercase letters A to Z
+- Prints each letter with its serial number and ASCII value
+- Displays it in a table format
+- Do NOT hardcode each
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char ch='A';
+    int i;
+    printf("---A to Z with ASCII values---\n :");
+    printf("No.\tcharacter\tASCII\n");
+    printf("--------------------------\n");
+    for(i=0;i<26;i++){
+         printf("%d\t%c\t%d\n",i+1,ch+i,ch+i);
+    }
+   return 0;
+}
+8)Q4. Case Converter without Library
+Write a C program that:
+- Reads a letter from the user
+- If uppercase converts to lowercase
+- If lowercase converts to uppercase
+- If not a letter prints error message
+- Do NOT use toupper() or tolower()
+
+Expected Output:
+Enter a letter: H
+You entered Uppercase  : H
+Converted to Lowercase : h
+#include <stdio.h>
+
+int main()
+{
+    char ch;
+
+    printf("Enter an alphabet: ");
+    ch = getchar();
+
+    if (ch >= 'A' && ch <= 'Z')
+    {
+        printf("You entered Uppercase  : %c\n", ch);
+        printf("Converted to Lowercase : %c\n", ch + 32);
+    }
+    else if (ch >= 'a' && ch <= 'z')
+    {
+        printf("You entered Lowercase  : %c\n", ch);
+        printf("Converted to Uppercase : %c\n", ch - 32);
+    }
+    else
+    {
+        printf("Error: Not an alphabet letter.\n");
+    }
+
+    return 0;
+}
