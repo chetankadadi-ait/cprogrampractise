@@ -226,7 +226,7 @@ int main()
     }
    return 0;
 }
-8)Q4. Case Converter without Library
+8) Case Converter without Library
 Write a C program that:
 - Reads a letter from the user
 - If uppercase converts to lowercase
@@ -264,3 +264,55 @@ int main()
 
     return 0;
 }
+9)merge 2 arrays
+#include <stdio.h>
+int main()
+{
+    int arr1[5];
+    int arr2[7];
+    int i;
+    int merge[12];
+    printf("enter arr1 elementes\n");
+    for(i=0;i<5;i++){
+        scanf("%d",&arr1[i]);
+    }
+    printf("enter arr2 elementes\n");
+    for(i=0;i<7;i++){
+        scanf("%d",&arr2[i]);
+    }
+     for(i=0;i<5;i++){
+        merge[i]=arr1[i];
+     }
+     for(i=0;i<7;i++){
+        merge[5+i]=arr2[i];
+     }
+      printf("Merged array is:\n");
+     for(i=0;i<12;i++){
+
+     printf("%d",merge[i]);
+
+     }
+     return 0;
+}
+10)Write a program to print each character of a string using a pointer.
+#include<stdio.h>
+int main()
+{
+char name[20];
+char *ptr;
+ptr=name;
+
+printf("enter a string\n");
+scanf("%s",name);
+while(*ptr !='\0'){
+        printf("%c ",*ptr);
+        ptr++;
+
+}
+
+}
+
+
+
+
+
