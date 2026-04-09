@@ -1,0 +1,103 @@
+9)Write a program to copy one string to another using pointers.
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main()
+{
+    char arr[20];
+    char *ptr;
+    char ptrr[20];
+
+    ptr = arr;
+
+    printf("Enter a string:\n");
+    scanf("%s", arr);
+
+    strcpy(ptrr, ptr);   // copy string
+
+    printf("Copied string = %s", ptrr);
+
+    return 0;
+}
+2)Sum of the Main Diagonal (Combines 2D Arrays & Loops)
+Question: Write a C program that initializes a 3x3 2D integer array (a matrix). Use a single loop
+to calculate and print the sum of its main diagonal elements (where the row index equals the
+column index, e.g., [0][0], [1][1], [2][2]).
+
+#include<stdio.h>
+int main()
+{
+     double arr[3][3]={{3,4, 5 },
+    {6, 7, 8},
+    { 9 ,4,5}};
+    int daigonalsum=0;
+    int i;
+    for(int i=0;i<3;i++ ){
+        daigonalsum +=arr[i][i];
+
+    }
+    printf("diagonalsum=%d",daigonalsum);
+    return 0;
+
+}
+3)Word Counter (Combines Strings, Loops & Logic)
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char str[100];
+    int i = 0;
+    int count = 1;
+
+    printf("Enter a string:\n");
+    fgets(str, sizeof(str), stdin);
+
+    // Handle empty input
+    if (str[0] == '\n') {
+        count = 0;
+    }
+
+    while (str[i] != '\0') {
+
+        if (str[i] == ' ' && str[i+1] != '\n' && str[i+1] != '\0') {
+            count++;
+        }
+        i++;
+    }
+
+    printf("Total = %d\n", count);
+
+    return 0;
+}
+4) Array of Structs to Find the Oldest (Combines Structs, Arrays & Loops)
+#include<stdio.h>
+struct person{
+char name[30];
+int age;
+};
+int main()
+{
+
+    struct person arr[4]={{"shree",23},
+    {"charan",45},
+    {"chetan",22},
+    {"karthik",50}
+    };
+    int maxage=arr[0].age;
+    int oldestindex=0;
+    for (int i=1;i<4;i++)
+    {
+        if (arr[i].age>maxage){
+            maxage=arr[i].age;
+            oldestindex=i;
+        }
+    }
+    printf("the oldest person is=%s,and is age =%d\n",arr[oldestindex].name,arr[oldestindex].age);
+    return 0;
+
+
+}
+
+
