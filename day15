@@ -1,0 +1,58 @@
+1)move zero to end in an array
+#include <stdio.h>
+#include <stdlib.h>
+int main()
+{
+    int arr[5];
+    int i,n,temp,j=0;
+    printf("enter number of elementes of an array \n");
+    scanf("%d",&n);
+    printf("enter the elementes\n");
+    for(i=0;i<n;i++){
+scanf("%d",&arr[i]);
+
+    }
+    for (i=0;i<n;i++){
+        if (arr[i]!=0)
+        {
+           temp=arr[i] ;
+           arr[i]=arr[j];
+           arr[j]=temp;
+           j++;
+        }
+
+    }
+printf("array after moving zero\n");
+for(i=0;i<n;i++){
+    printf("%d",arr[i]);
+}
+}
+2)Find subarray with given sum
+
+#include <stdio.h>
+
+int main() {
+    int arr[] = {1, 2, 3, 7, 5};
+    int n = 5;
+    int target = 12;
+
+    int start = 0, current_sum = 0;
+    int i;
+
+    for(i = 0; i < n; i++) {
+        current_sum += arr[i];
+
+        while(current_sum > target && start < i) {
+            current_sum -= arr[start];
+            start++;
+        }
+
+        if(current_sum == target) {
+            printf("Subarray found from index %d to %d\n", start, i);
+            return 0;
+        }
+    }
+
+    printf("No subarray found\n");
+    return 0;
+}
