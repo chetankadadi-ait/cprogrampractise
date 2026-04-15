@@ -1,0 +1,73 @@
+1)Check if two strings are anagrams
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char str1[20] = "chetan";
+    char str2[20] = "tanche";
+
+    // Sort both strings
+    strlwr(str1); // optional: for case-insensitive
+    strlwr(str2);
+
+    int n1 = strlen(str1);
+    int n2 = strlen(str2);
+
+    if (n1 != n2) {
+        printf("Not anagrams\n");
+        return 0;
+    }
+
+    // Bubble sort both strings
+    for(int i = 0; i < n1-1; i++) {
+        for(int j = i+1; j < n1; j++) {
+            if(str1[i] > str1[j]) {
+                char temp = str1[i];
+                str1[i] = str1[j];
+                str1[j] = temp;
+            }
+            if(str2[i] > str2[j]) {
+                char temp = str2[i];
+                str2[i] = str2[j];
+                str2[j] = temp;
+            }
+        }
+    }
+
+    // Compare sorted strings
+    if(strcmp(str1, str2) == 0)
+        printf("Strings are anagrams\n");
+    else
+        printf("Not anagrams\n");
+
+    return 0;
+}
+2)check the pallidrome
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char name[20],rev[30];
+    int i,len;
+    printf("enter a string\n");
+    fgets(name,sizeof(name),stdin);
+    name[strlen(name)-1]='\0';
+    len=strlen(name);
+for(i=0;i<len;i++)
+{
+    rev[i]=name[len-i-1];
+}
+rev[len]='\0';
+printf("Original : %s\n", name);
+    printf("Reversed : %s\n", rev);
+    printf("Length   : %d\n", len);
+    if(strcmp(rev,name)==0)
+        printf("its palidrome\n");
+    else printf("its not palidrome");
+
+
+return 0;
+}
+
