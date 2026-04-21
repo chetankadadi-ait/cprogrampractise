@@ -1,0 +1,421 @@
+1) Program : Declaring and Printing Strings
+#include <stdio.h>
+
+int main() {
+
+    char name[] = "Hello";
+
+    // print as string
+    printf("String     : %s\n", name);
+
+    // print length manually
+    int len = 0;
+    while (name[len] != '\0') {
+        len++;
+    }
+    printf("Length     : %d\n", len);
+
+    // print each character one by one
+    printf("Characters : ");
+    for (int i = 0; name[i] != '\0'; i++) {
+        printf("%c ", name[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+2)// Program : Reading Strings from User
+#include <stdio.h>
+
+int main() {
+
+    char word[20];
+    char sentence[50];
+
+    // Way 1 - scanf stops at space
+    printf("Enter a word: ");
+    scanf("%s", word);
+    printf("Word    : %s\n", word);
+
+    getchar();   // clear leftover newline from buffer
+
+    // Way 2 - fgets reads full sentence
+    printf("\nEnter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+    printf("Sentence: %s", sentence);
+
+    return 0;
+}
+3)strlen()
+// Program : strlen()
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+    char name[] = "Hello";
+    char city[50];
+
+    printf("String        : %s\n", name);
+    printf("Length        : %lu\n", strlen(name));
+
+    printf("\nEnter a city name: ");
+    fgets(city, sizeof(city), stdin);
+
+    city[strlen(city) - 1] = '\0';   // remove '\n'
+
+    printf("City          : %s\n", city);
+    printf("Length        : %lu\n", strlen(city));
+
+    return 0;
+}
+4)// Program : strcpy()
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+    char source[] = "Hello";
+    char destination[20];
+
+    strcpy(destination, source);
+
+    printf("Source         : %s\n", source);
+    printf("Destination    : %s\n", destination);
+
+    char name[20];
+    strcpy(name, "World");
+    printf("Copied Literal : %s\n", name);
+
+    return 0;
+}
+5)// Program : strcat()
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+    char first[50] = "Hello";
+    char second[] = " World";
+
+    printf("Before strcat:\n");
+    printf("First  : %s\n", first);
+    printf("Second : %s\n", second);
+
+    strcat(first, second);
+
+    printf("\nAfter strcat:\n");
+    printf("Result : %s\n", first);
+    printf("Length : %lu\n", strlen(first));
+
+    strcat(first, "!!!");
+    printf("\nAfter adding !!! : %s\n", first);
+
+    return 0;
+}
+6)// Program : strcmp()
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+
+    char str1[50], str2[50];
+
+    printf("Enter first string  : ");
+    fgets(str1, sizeof(str1), stdin);
+    str1[strlen(str1) - 1] = '\0';
+
+    printf("Enter second string : ");
+    fgets(str2, sizeof(str2), stdin);
+    str2[strlen(str2) - 1] = '\0';
+
+    int result = strcmp(str1, str2);
+
+    printf("\nComparing \"%s\" and \"%s\"\n", str1, str2);
+
+    if (result == 0)
+        printf("Result : Both strings are EQUAL\n");
+    else if (result < 0)
+        printf("Result : \"%s\" is LESS than \"%s\"\n", str1, str2);
+    else
+        printf("Result : \"%s\" is GREATER than \"%s\"\n", str1, str2);
+
+    printf("strcmp returned : %d\n", result);
+
+    return 0;
+}
+7) String Info Program
+Write a C program that:
+- Reads a string from the user using fgets()
+- Prints the full string
+- Prints the length of the string using strlen()
+- Prints each character one by one using a loop
+Requirements: Use fgets(), remove '\n', use %s and %lu, use for loop with != '\0'
+
+Expected Output:
+Enter your name: John
+String  : John
+Length  : 4
+Characters : J o h n
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+   char name[20];
+   printf("enter your name:\n",name);
+   fgets(name,sizeof(name),stdin);
+   name[strlen(name)-1]='\0';
+    printf("string =  %s\n",name);
+    printf("length = %lu\n",strlen(name));
+    printf("characters   =");
+    for(int i=0;name[i]!='\0';i++){
+printf("%c  ",name[i]);
+    }
+return 0;
+}
+8)Copy and Compare Two Strings
+Write a C program that:
+- Reads two strings from the user
+- Copies the first string into a third variable using strcpy()
+- Compares the two strings using strcmp()
+- Prints whether they are equal or which one is greater
+Requirements: Use fgets(), strcpy(), strcmp(), if / else if
+
+Expected Output:
+Enter first string  : Hello
+Enter second string : World
+Copied "Hello" into copy variable
+Copy : Hello
+Comparing "Hello" and "World"
+Result : "Hello" is LESS than "World"
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char name[25];
+    char name1[20];
+    printf("enter first word \n");
+    fgets(name,sizeof(name),stdin);
+    name[strlen(name)-1]='\0';
+      printf("enter second word \n");
+    fgets(name1,sizeof(name1),stdin);
+    name1[strlen(name1)-1]='\0';
+char copy[20];
+    (strcpy(copy,name));
+    printf("copied  = %s\n",copy);
+    strcmp(name,name1);
+    char result=strcmp(name,name1);
+    if(result == 0)
+    {
+        printf("Result : Both strings are EQUAL\n");
+    }
+    else if(result < 0)
+    {
+        printf("Result : \"%s\" is LESS than \"%s\"\n", name,name1);
+    }
+    else
+    {
+        printf("Result : \"%s\" is GREATER than \"%s\"\n", name, name1);
+    }
+
+    return 0;
+}
+9) Join Full Name using strcat
+Write a C program that:
+- Reads a first name and last name separately
+- Joins them into a full name using strcat()
+- Prints the full name and its length
+Requirements: Use fgets(), strcpy() to copy first name, strcat() twice, strlen()
+
+Expected Output:
+Enter first name : John
+Enter last name  : Smith
+Full Name : John Smith
+Length    : 10
+#include <stdio.h>
+#include <string.h>
+
+int main()
+
+{
+    char name[30];
+    char name1[35];
+    printf("enter the first name:\n");
+    fgets(name,sizeof(name),stdin);
+    name[strlen(name) - 1] = '\0';
+    printf("enter the second name\n");
+    fgets(name1,sizeof(name1),stdin);
+    name1[strlen(name1) - 1] = '\0';
+    char copy[20];
+    (strcpy(copy,name));
+    printf("copied=%s\n",copy);
+    strcat(name,name1);
+    printf("full name : %s\n", name);
+    printf("length=%lu\n",strlen(name));
+    return 0;
+
+}
+10) Count Letters Digits Spaces in a String
+Write a C program that:
+- Reads a sentence from the user
+- Loops through each character
+- Counts letters, digits, spaces and other characters separately
+- Prints a full report
+Requirements: Use fgets(), for loop with != '\0', isalpha() isdigit() isspace() from ctype.h
+
+Expected Output:
+Enter a sentence: Hello World 123!
+String  : Hello World 123!
+Length  : 16
+Letters : 10
+Digits  : 3
+Spaces  : 2
+Others  : 1
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main()
+{
+    char str[100];
+    int letters = 0, digits = 0, spaces = 0, others = 0;
+    int i;
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
+
+    // Remove newline character added by fgets
+    str[strlen(str) - 1] = '\0';
+
+    for(i = 0; str[i] != '\0'; i++)
+    {
+        if(isalpha(str[i]))
+            letters++;
+        else if(isdigit(str[i]))
+            digits++;
+        else if(isspace(str[i]))
+            spaces++;
+        else
+            others++;
+    }
+
+    printf("\nString  : %s\n", str);
+    printf("Length  : %lu\n", strlen(str));
+    printf("Letters : %d\n", letters);
+    printf("Digits  : %d\n", digits);
+    printf("Spaces  : %d\n", spaces);
+    printf("Others  : %d\n", others);
+
+    return 0;
+
+}
+11) Password Checker using strcmp
+Write a C program that:
+- Has a fixed password stored in the program
+- Gives the user 3 attempts to enter the correct password
+- Uses strcmp() to check if input matches
+- Prints Access Granted if correct, Access Denied after 3 wrong attempts
+Requirements: Use fgets(), strcmp(), while loop, remove '\n'
+
+Expected Output (correct on 3rd attempt):
+Enter password (attempt 1/3): wrong
+Wrong password!
+Enter password (attempt 2/3): wrong
+Wrong password!
+Enter password (attempt 3/3): secret123
+Access Granted!
+
+Expected Output (all wrong):
+Enter password (attempt 1/3): wrong
+Wrong password!
+Enter password (attempt 2/3): wrong
+Wrong password!
+Enter password (attempt 3/3): wrong
+Wrong password!
+Access Denied! Too many wrong attempts.
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char password[20] = "secret123";   // Fixed password
+    char input[50];
+    int attempt = 1;
+
+    while(attempt <= 3)
+    {
+        printf("Enter password (attempt %d/3): ", attempt);
+        fgets(input, sizeof(input), stdin);
+
+        // Remove newline added by fgets
+        input[strlen(input) - 1] = '\0';
+
+        if(strcmp(input, password) == 0)
+        {
+            printf("Access Granted!\n");
+            return 0;   // Stop program if correct
+        }
+        else
+        {
+            printf("Wrong password!\n");
+        }
+
+        attempt++;
+    }
+
+    printf("Access Denied! Too many wrong attempts.\n");
+
+    return 0;
+}
+11)Reverse a String and Check Palindrome
+Write a C program that:
+- Reads a string from the user
+- Reverses it manually using a loop
+- Prints the original and reversed string
+- Checks if the string is a palindrome using strcmp()
+Requirements: Use fgets(), strlen(), for loop to reverse manually, strcmp()
+
+Expected Output (not palindrome):
+Enter a string: hello
+Original : hello
+Reversed : olleh
+Length   : 5
+Result   : It is NOT a Palindrome.
+
+Expected Output (palindrome):
+Enter a string: madam
+Original : madam
+Reversed : madam
+Length   : 5
+Result   : It is a Palindrome!
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char name[20],rev[30];
+    int i,len;
+    printf("enter a string\n");
+    fgets(name,sizeof(name),stdin);
+    name[strlen(name)-1]='\0';
+    len=strlen(name);
+for(i=0;i<len;i++)
+{
+    rev[i]=name[len-i-1];
+}
+rev[len]='\0';
+printf("Original : %s\n", name);
+    printf("Reversed : %s\n", rev);
+    printf("Length   : %d\n", len);
+    if(strcmp(rev,name)==0)
+        printf("its palidrome\n");
+    else printf("its not palidrome");
+
+
+return 0;
+}
+
+
+
